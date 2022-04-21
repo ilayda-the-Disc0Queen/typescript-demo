@@ -2,30 +2,46 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+interface Istate{
+  people: {
+    name: string
+    age: number
+    url: string
+    note?: string
+  }[]
+}  
+
 function App() {
 
-  const [number, setNumber] = useState<number | string>(5);
+  // const [number, setNumber] = useState<number | string>(5);
+  // const changeNumber = () => {
+  //   setNumber(10)
+  // }
 
-  const changeNumber = () => {
-    setNumber(10)
-  }
+  // const [people, setPeople] = useState([
+  //   {
+  //     name: "Shenseea",
+  //     url: "",
+  //     age: 25,
+  //     note: "Independent gyal. Real numba one trending gyal"
+  //   },
+  //   {
+  //     name: "Teyana Taylor",
+  //     url: "",
+  //     age: 31,
+  //     // note: "A rose in Harlem"
+  //   }
+  // ])
 
+  const [people, setPeople] = useState<Istate["people"]>([])
+  people.map(person => {
+    person.age
+  })
+
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >  
-          Learn React
-        </a>
-      </header>
+      <h1>People invited to my party</h1>
     </div>
   );
 }
