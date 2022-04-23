@@ -19,22 +19,22 @@ function App() {
   //   setNumber(10)
   // }
 
-  // const [people, setPeople] = useState([
-  //   {
-  //     name: "Shenseea",
-  //     url: "",
-  //     age: 25,
-  //     note: "Independent gyal. Real numba one trending gyal"
-  //   },
-  //   {
-  //     name: "Teyana Taylor",
-  //     url: "",
-  //     age: 31,
-  //     // note: "A rose in Harlem"
-  //   }
-  // ])
+  const [people, setPeople] = useState<Istate["people"]>([
+    {
+      name: "Shenseea",
+      url: "https://www.radiodubplate.com/2020/03/shenseea-debuts-the-sidechick-song-with-official-music-video/",
+      age: 25,
+      note: "Independent gyal. Real numba one trending gyal"
+    },
+    {
+      name: "Teyana Taylor",
+      url: "",
+      age: 31,
+      note: "A rose in Harlem"
+    }
+  ])
 
-  const [people, setPeople] = useState<Istate["people"]>([])
+  // const [people, setPeople] = useState<Istate["people"]>([])
   people.map(person => {
     console.log(person.age);  
   })
