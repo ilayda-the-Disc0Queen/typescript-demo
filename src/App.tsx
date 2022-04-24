@@ -37,7 +37,7 @@ function App() {
 
   // const [people, setPeople] = useState<Istate["people"]>([])
   people.map(person => {
-    console.log(person.age);  
+    // console.log(person.age);  
   })
 
   // to be able to add new people to the list, we have  to pass down "people"

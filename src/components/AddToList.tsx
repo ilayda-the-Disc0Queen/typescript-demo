@@ -9,14 +9,13 @@ interface IProps{
 }
 
 // Then we change "AddToList" into a FC and it takes IProps as its props
-const AddToList: React.FC<IProps> = () => {
+const AddToList: React.FC<IProps> = ({people, setPeople}) => {
 
 	const [input, setInput] = useState({
 		name: "",
 		age: "",
 		note: "",
 		img:  ""
-
 	})
 
 	const handleChange  =  (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void  => {
@@ -26,7 +25,33 @@ const AddToList: React.FC<IProps> = () => {
 		})
 	}
 
-	const handleClick = (): void => {} // means fn returns void
+	const handleClick = (): void => {
+		if(
+			!input.name ||
+			!input.age || 
+			!input.img
+		){
+			return
+		}
+
+		setPeople([
+			...people,
+			{
+				name: input.name,
+				age: parseInt(input.age),
+				url: input.img,
+				note: input.note
+			}
+		])
+
+		setInput({
+			name: "",
+			age: "",
+			note: "",
+			img:  ""
+		})
+
+	} 
 
 	return (
 		<div className="AddToList">
@@ -39,7 +64,7 @@ const AddToList: React.FC<IProps> = () => {
 				onChange={handleChange}
 			/>
 			<input 
-				type="text" 
+				type="number" 
 				placeholder="Age"
 				className="AddToList-input"
 				value={input.age}
@@ -61,7 +86,12 @@ const AddToList: React.FC<IProps> = () => {
 				name="note"
 				onChange={handleChange}
 			/>
-
+			<button 
+				className="AddToList-btn"
+				onClick={handleClick}
+			>
+				Add to list
+			</button>
 		</div>
 	)
 
