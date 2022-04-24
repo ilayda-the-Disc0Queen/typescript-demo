@@ -40,12 +40,13 @@ function App() {
     console.log(person.age);  
   })
 
- 
+  // to be able to add new people to the list, we have  to pass down "people"
+  // and "setPeople" to the AddToList component as PROPS
   return (
     <div className="App">
       <h1>People invited to my party</h1>
       <List people={people}/>
-      <AddToList/> 
+      <AddToList people={people} setPeople={setPeople}/> 
     </div>
   );
 }

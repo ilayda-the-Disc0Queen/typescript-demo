@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
+import { Istate as Props } from "../App";
 
-const AddToList = () => {
+
+// we first pass in the props we're dealing with as IProps
+interface IProps{
+	people: Props["people"]
+	setPeople: React.Dispatch<React.SetStateAction<Props["people"]>>
+}
+
+// Then we change "AddToList" into a FC and it takes IProps as its props
+const AddToList: React.FC<IProps> = () => {
 
 	const [input, setInput] = useState({
 		name: "",
@@ -17,7 +26,7 @@ const AddToList = () => {
 		})
 	}
 
-	const handleClick = (): void => {}
+	const handleClick = (): void => {} // means fn returns void
 
 	return (
 		<div className="AddToList">
