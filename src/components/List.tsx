@@ -1,13 +1,5 @@
 import React from "react";
-
-interface IProps{
-  people: {
-    name: string
-    age: number
-    url: string
-    note?: string
-  }[]
-}
+import { Istate as IProps } from "../App";
 
 // const List = (props: IProps) => { could also do:
 // const List = ({ people }: IProps) => { or
